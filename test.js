@@ -22,6 +22,9 @@ app.post("/login",(req,res)=>{
                 "messege":"sucessfull login",
                 "Data":users
             })
+        }else{
+            res.status(400)
+            break
         }
     }
    
