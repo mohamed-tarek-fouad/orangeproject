@@ -15,12 +15,17 @@ app.post("/register",(req,res)=>{
 })
 app.post("/login",(req,res)=>{
     let {firstname2,password2}=req.body
-    if(firstname2==users.firstname && password2==users.password){
-        res.status(200).json({
-            "messege":"sucessfull login",
-            "Data":users
-        })
+    for(let i=0;i<users.length;i++){
+        console.log(users[i].firstname,users[i].password)
+        if(users[i].firstname==firstname2 &&users[i].password==password2 ){
+            res.status(200).json({
+                "messege":"sucessfull login",
+                "Data":users
+            })
+        }
     }
+   
+    
 })
 app.listen(port,(req,res)=>{
     console.log(`app.listen at http://localhost:${port}`)
