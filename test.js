@@ -16,7 +16,6 @@ app.post("/register",(req,res)=>{
 })
 
 app.patch("/patch/:id",(req,res)=>{
-    console.log(req.params.id)
     const{firstname2,password2}=req.body
     for(let i=0;i<users.length;i++){
         if(users[i].firstname==firstname2 &&users[i].password==password2){
@@ -26,6 +25,17 @@ app.patch("/patch/:id",(req,res)=>{
             })
         }
     }res.status(400).json({messege:"cant update"})
+})
+app.delete("/delete/:id",(req,res)=>{
+    for(let i=0;i<users.length;i++){
+        if(users[i].id==id){
+            users.pop(i)
+            res.status(200).json({
+                messege:"success",
+                Data:users
+            })
+        }
+    }res.status(400).json({messege:"cant delete"})
 })
 
 
