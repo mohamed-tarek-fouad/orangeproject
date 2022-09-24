@@ -16,10 +16,14 @@ app.post("/register",(req,res)=>{
 })
 
 app.patch("/patch/:id",(req,res)=>{
-    const{firstname2,password2}=req.body
+    let {firstname2,password2}=req.body
     for(let i=0;i<users.length;i++){
-        if(users[i].firstname==firstname2 &&users[i].password==password2){
+        
+        if(users[i].id==id){
+            users[i].firstname=firstname2
+            users[i].password=password2
             res.status(200).json({
+
                 messege:"success",
                 Data:users
             })
