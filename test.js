@@ -12,8 +12,6 @@ app.post("/register",(req,res)=>{
     let check3=false
     let check4=false
     for(a=0;a<password.length;a++){
-        console.log(check1,check2,check3,check4)
-        console.log(password[a].charCodeAt())
         if(password[a].charCodeAt()>64 &&password[a].charCodeAt()<91){check1=true}//uppercase
         if(password[a].charCodeAt()>96 &&password[a].charCodeAt()<124){check2=true}//smallcase
         if(password[a].charCodeAt()>47 &&password[a].charCodeAt()<58){check3=true}//nums
